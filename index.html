@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* Parallax Sections */
+        .parallax {
+            height: 100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .parallax:hover {
+            transform: scale(1.1); /* Zoom-in effect */
+        }
+
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 1.5em;
+            font-weight: 400;
+        }
+
+        .scroll-down {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-down:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        section .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        section .content:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+        }
+
+        /* Project Styles */
+        .project {
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+        }
+
+        .project h3 {
+            font-size: 1.7em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        /* Smooth Scroll Effect */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+
+    <!-- jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <header id="home">
+        <div class="parallax" style="background-image: url('https://via.placeholder.com/1600x900/0000FF/FFFFFF');"></div>
+        <div class="overlay">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Laravel & Python Developer</p>
+            <a href="#about" class="scroll-down">Scroll Down</a>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="parallax" style="background-image: url('https://via.placeholder.com/1600x900/FF5733/FFFFFF');"></div>
+        <div class="content">
+            <h2>About Me</h2>
+            <p>I am a skilled web developer with experience in building and maintaining web applications using Laravel, Python, and various technologies.</p>
+            <p>My work includes developing API-driven systems, implementing secure payment solutions, and automating backend processes.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="content">
+            <h2>Skills</h2>
+            <ul>
+                <li>Laravel (MVC, Eloquent ORM, Blade Templating)</li>
+                <li>Python (Backend Development, Automation)</li>
+                <li>Frontend Technologies (HTML5, CSS3, JavaScript, jQuery)</li>
+                <li>API Integration (OAuth, Social Media, Payment Systems)</li>
+                <li>Security Protocols (bcrypt, OTP validation)</li>
+                <li>CI/CD with Docker and Jenkins</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="parallax" style="background-image: url('https://via.placeholder.com/1600x900/28B463/FFFFFF');"></div>
+        <div class="content">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>Virtual Golf Center</h3>
+                <p>Developed and maintained a web application for a virtual golf center, focusing on real-time user status updates and secure payment systems.</p>
+            </div>
+            <div class="project">
+                <h3>API-Driven Systems</h3>
+                <p>Built scalable, API-driven systems using Laravel, integrating subscription billing, social media APIs, and secure payment gateways.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="content">
+            <h2>Contact</h2>
+            <p>Feel free to reach out to me for project collaborations or inquiries.</p>
+            <a href="mailto:youremail@example.com">Email Me</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Your Name</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for "Scroll Down" link
+        $(".scroll-down").on("click", function(e) {
+            e.preventDefault();
+            $('html, body').animate({
+                scrollTop: $("#about").offset().top
+            }, 800);
+        });
+
+        // jQuery Animations
+        $(document).ready(function() {
+            // Fade-in effect for sections as they come into view
+            $(window).on('scroll', function() {
+                $('.content').each(function() {
+                    var elementOffset = $(this).offset().top;
+                    var windowHeight = $(window).scrollTop() + $(window).height();
+                    if (windowHeight > elementOffset) {
+                        $(this).fadeIn(1000);
+                    }
+                });
+            });
+
+            // Smooth zoom on hover for images or project items
+            $(".project").hover(
+                function() {
+                    $(this).animate({scale: 1.05}, 300);
+                }, 
+                function() {
+                    $(this).animate({scale: 1}, 300);
+                }
+            );
+        });
+    </script>
+
+</body>
+</html>
