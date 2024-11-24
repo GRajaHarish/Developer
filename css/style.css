@@ -408,6 +408,9 @@ a:focus {
         padding: 8px 10px;
         letter-spacing: 0;
     }
+    .about .about-img img{
+       display: none;
+    }
 }
 
 
